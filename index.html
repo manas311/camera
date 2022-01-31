@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Camera</title>
+  <link rel="shortcut icon" href="favicon.png">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <link rel="stylesheet" href="styles.css">
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      var but = document.getElementById("but");
+      var video = document.getElementById("vid");
+      var mediaDevices = navigator.mediaDevices;
+      vid.muted = true;
+      but.addEventListener("click", () => {
+        mediaDevices
+          .getUserMedia({
+            video: true,
+            audio: true,
+          })
+          .then((stream) => {
+            video.srcObject = stream;
+            video.addEventListener("loadedmetadata", () => {
+              video.play();
+            });
+          })
+          .catch(alert);
+      });
+    });
+  </script>
+</head>
+
+<body>
+  <div class="container">
+    <div id="background"></div>
+    <div class="phone">
+      <div class="camera_access">
+        <video id="vid"></video>
+      </div>
+      <br />
+      <button id="but" autoplay>
+        Open WebCam
+      </button>
+    </div>
+  </div>
+  <div class="code-with-love">
+    Made with <i class="fa fa-heart"></i> by <a href="https://www.instagram.com/silentobserver311/" target="-_blank">Manas Tewari</a>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.js"></script>
+
+</body>
+
+</html>
